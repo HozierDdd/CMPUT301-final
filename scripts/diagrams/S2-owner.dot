@@ -1,0 +1,34 @@
+// Storyboard S2 - Campsite owner: register, list a lottery, draw, manage reservations.
+digraph S2 {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=13, labelloc=t, nodesep=0.45, ranksep=0.55,
+         label="S2  Campsite owner: register a campsite, run a lottery, manage reservations\n(Scenario 2 from the project description)\n "];
+  node  [shape=box, style="rounded,filled", fillcolor="#eef5f1", color="#216e50", fontname="Helvetica", fontsize=11, margin="0.18,0.10"];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", fontcolor="#216e50"];
+
+  M1  [label="M1  First launch / role selection\nUS 01.09.01, 03.11.01"];
+  M10 [label="M10  My campsites\nUS 02.03.01"];
+  M11 [label="M11  Register / edit campsite\nUS 02.01.01, 02.01.02, 02.01.03"];
+  M12 [label="M12  Campsite details, QR, booked dates\nUS 02.01.04, 02.02.01, 02.06.01"];
+  M13 [label="M13  Create / edit lottery\nUS 02.04.01 - 02.04.07, 02.02.02"];
+  M14 [label="M14  Waiting list\nUS 02.09.01, 02.10.01, 02.10.02, 02.05.01"];
+  SYS [label="System: registration period ends,\nN winners drawn at random,\nwinners + losers notified\nUS 02.05.01", shape=note, fillcolor="#fff9db", color="#8a6d00"];
+  M15 [label="M15  Reservations (active/past/cancelled)\nUS 02.07.01, 02.07.02, 02.07.03"];
+  M15d [label="M15  Reject dialog\nUS 02.08.01", fillcolor="#fff4e5", color="#b35c00"];
+  M16 [label="M16  Messages\nUS 02.12.01"];
+
+  M1  -> M10 [label="taps 'Campsite owner'"];
+  M10 -> M11 [label="taps '+ Register a new campsite'"];
+  M11 -> M12 [label="fills details, drops map pin,\nadds image, taps 'Publish'\n(QR generated automatically)"];
+  M10 -> M12 [label="taps a campsite card"];
+  M12 -> M11 [label="taps 'Edit campsite'"];
+  M12 -> M13 [label="taps 'Create lottery'"];
+  M13 -> M14 [label="sets periods and winners,\ntaps 'Publish lottery'"];
+  M14 -> M13 [label="taps lottery card\n(edit listing)", style=dashed];
+  M14 -> M14 [label="taps 'Send notification\nto everyone on the list'"];
+  M14 -> SYS [label="registration closes\n(no user action)"];
+  SYS -> M15 [label="winners confirm on their phones;\nowner opens 'Reservations' tab"];
+  M15 -> M15d [label="taps 'Reject' on a card"];
+  M15d -> M15 [label="enters reason, taps 'Reject'\n(entrant notified and refunded,\ncard moves to Cancelled)"];
+  M15 -> M16 [label="taps 'Message' on a card"];
+  M16 -> M15 [label="taps back"];
+}

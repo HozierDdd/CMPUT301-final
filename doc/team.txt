@@ -1,0 +1,9 @@
+Team: Demo (fictional team for the Part 2 walkthrough)
+Mentor TA: hanzhen3
+
+alice   Backlog owner - entrant search and browse stories
+bob     Backlog owner - entrant lottery and reservation stories
+chen    Mockup owner  - campsite owner screens
+dana    Mockup owner  - lottery and reservation screens, storyboards
+eli     CRC owner     - admin stories
+farah   Wiki and tool-use owner - auth, profile, notifications

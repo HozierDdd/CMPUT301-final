@@ -1,0 +1,29 @@
+// CRC collaboration graph: a line between two classes means each lists the other as a collaborator.
+// Hollow arrowheads = generalization (is-a).
+graph CRC {
+  graph [fontname="Helvetica", fontsize=13, labelloc=t, layout=fdp, overlap=false, splines=true, K=1.1, sep="+18",
+         label="CRC collaboration graph: every line here appears on BOTH cards\n "];
+  node  [shape=box, style="rounded,filled", fillcolor="#eef5f1", color="#216e50", fontname="Helvetica", fontsize=12];
+  edge  [color="#555555", fontname="Helvetica", fontsize=10];
+
+  User [label="User\n(abstract)", fillcolor="#dfe9f5", color="#2c5f8a"];
+  Entrant; CampsiteOwner; Admin;
+  Campsite; Availability; Lottery; WaitingList; Reservation;
+  Notification; Message; Rating;
+  Image [fillcolor="#f4f4f4", color="#888888"]; GeoLocation [fillcolor="#f4f4f4", color="#888888"]; QRCode [fillcolor="#f4f4f4", color="#888888"];
+
+  // generalization
+  edge [dir=back, arrowtail=empty, color="#2c5f8a", penwidth=1.6];
+  User -- Entrant; User -- CampsiteOwner; User -- Admin;
+
+  // collaborations
+  edge [dir=none, arrowtail=none, color="#555555", penwidth=1];
+  User -- Image; User -- Notification; User -- Message;
+  Entrant -- Campsite; Entrant -- WaitingList; Entrant -- Reservation; Entrant -- Rating; Entrant -- Lottery;
+  CampsiteOwner -- Campsite; CampsiteOwner -- Lottery; CampsiteOwner -- Reservation; CampsiteOwner -- Notification;
+  Admin -- Rating; Admin -- Campsite; Admin -- User; Admin -- Image; Admin -- Notification; Admin -- Message;
+  Campsite -- Availability; Campsite -- GeoLocation; Campsite -- QRCode; Campsite -- Image; Campsite -- Lottery; Campsite -- Rating;
+  Availability -- Reservation;
+  Lottery -- WaitingList; Lottery -- Reservation; Lottery -- Notification;
+  Reservation -- Message; Reservation -- Notification;
+}

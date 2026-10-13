@@ -1,0 +1,30 @@
+// Storyboard S3 - Admin: browse, remove, review logs.
+digraph S3 {
+  graph [rankdir=LR, fontname="Helvetica", fontsize=13, labelloc=t, nodesep=0.4, ranksep=0.7,
+         label="S3  Admin: browse content, remove violations, review logs\n "];
+  node  [shape=box, style="rounded,filled", fillcolor="#eef5f1", color="#216e50", fontname="Helvetica", fontsize=11, margin="0.18,0.10"];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", fontcolor="#216e50"];
+
+  M1   [label="M1  Role selection\nUS 03.11.01"];
+  M17  [label="M17  Admin: browse campsites\nUS 03.04.01"];
+  M17p [label="M17  Profiles tab\nUS 03.05.01"];
+  M17i [label="M17  Images tab\nUS 03.06.01"];
+  M17o [label="M17  Owners tab\nUS 03.07.01"];
+  DLG  [label="M17  Remove dialog\nUS 03.01.01, 03.02.01, 03.03.01,\n03.07.01, 03.09.01, 03.10.01", fillcolor="#fff4e5", color="#b35c00"];
+  M18  [label="M18  Logs: notifications\nUS 03.08.01"];
+  M18m [label="M18  Logs: messages\nUS 03.12.01"];
+  M10  [label="M10  My campsites (as owner)\nUS 03.11.01"];
+
+  M1 -> M17   [label="taps 'Admin'"];
+  M1 -> M10   [label="taps 'Campsite owner'\n(same device, admin profile)", style=dashed];
+  M17 -> M17p [label="taps 'Profiles' tab"];
+  M17p -> M17i [label="taps 'Images' tab"];
+  M17i -> M17o [label="taps 'Owners' tab"];
+  M17 -> DLG  [label="taps 'Remove' on a row"];
+  M17p -> DLG [label="taps 'Remove'"];
+  M17i -> DLG [label="taps 'Remove'"];
+  M17o -> DLG [label="taps 'Remove'"];
+  DLG -> M17  [label="taps 'Remove'\n(row disappears)"];
+  M17 -> M18  [label="taps 'Logs' tab"];
+  M18 -> M18m [label="taps 'Messages' tab"];
+}

@@ -1,0 +1,9 @@
+// What NOT to hand in: screens without ids or user stories, arrows without actions.
+digraph BAD {
+  graph [rankdir=LR, fontname="Helvetica", fontsize=13, labelloc=t,
+         label="Bad storyboard (do not do this): no screen ids, no US numbers, no arrow labels\n "];
+  node  [shape=box, fontname="Helvetica", fontsize=11, color="#aa0000"];
+  edge  [color="#aa0000"];
+  "Home" -> "Campsite" -> "Lottery" -> "Done";
+  "Home" -> "Profile";
+}

@@ -1,0 +1,36 @@
+// Storyboard S1 - Entrant: scan or search, join, win, reserve or decline.
+// Boxes are screens (mockup id + user stories), arrows are user actions or system events.
+digraph S1 {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=13, labelloc=t, nodesep=0.45, ranksep=0.55,
+         label="S1  Entrant: scan or search, join the waiting list, win, reserve or decline\n(Scenario 1 and 3 from the project description)\n "];
+  node  [shape=box, style="rounded,filled", fillcolor="#eef5f1", color="#216e50", fontname="Helvetica", fontsize=11, margin="0.18,0.10"];
+  edge  [fontname="Helvetica", fontsize=10, color="#444444", fontcolor="#216e50"];
+
+  M1  [label="M1  First launch / role selection\nUS 01.09.01"];
+  M2  [label="M2  Search and filters\nUS 01.01.01, 01.01.02"];
+  M3  [label="M3  Results list\nUS 01.01.03, 01.01.04"];
+  M5  [label="M5  Scan QR code\nUS 01.12.01"];
+  M4  [label="M4  Campsite details\nUS 01.01.05, 01.01.06, 01.02.01,\n01.02.02, 01.13.01"];
+  M4b [label="M4  Campsite details\n(now on waiting list, button = Leave)\nUS 01.02.02"];
+  M6  [label="M6  Notifications\nUS 01.03.01, 01.03.02, 01.05.01"];
+  M7  [label="M7  You won: choose dates\nUS 01.04.01, 01.04.02, 01.04.03, 02.11.01"];
+  M8  [label="M8  My reservations\nUS 01.06.01, 01.06.02, 01.07.01,\n01.07.02, 01.05.02"];
+  M8d [label="M8  Cancel dialog\nUS 01.07.01", fillcolor="#fff4e5", color="#b35c00"];
+  END1 [label="Lottery over for this entrant", shape=ellipse, fillcolor="#f2f2f2", color="#888888"];
+
+  M1 -> M2  [label="taps 'Entrant'"];
+  M2 -> M3  [label="taps 'Show results'"];
+  M3 -> M4  [label="taps a campsite card"];
+  M2 -> M5  [label="taps 'Scan' tab"];
+  M5 -> M4  [label="camera reads a valid campsite QR"];
+  M4 -> M4b [label="taps 'Join waiting list'"];
+  M4b -> M4 [label="taps 'Leave waiting list'"];
+  M4b -> M6 [label="registration closes;\nsystem draws winners;\npush notification arrives"];
+  M6 -> M7  [label="taps 'You won!' item"];
+  M6 -> END1 [label="'Not selected' item\n(nothing to do)"];
+  M7 -> M8  [label="picks dates, ticks rules box,\ntaps 'Confirm reservation'"];
+  M7 -> END1 [label="taps 'Decline'\n(spot returns to owner)"];
+  M8 -> M8d [label="taps 'Cancel' on a card"];
+  M8d -> M8 [label="taps 'Cancel reservation'\n(card moves to Past, CSV + notification sent)"];
+  M8d -> M8 [label="taps 'Keep'", style=dashed];
+}
