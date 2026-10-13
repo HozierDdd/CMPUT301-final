@@ -5,7 +5,7 @@ Everything a marker needs is reachable from this page.
 
 | Deliverable | Page | Owner(s) |
 |---|---|---|
-| 1. Product backlog | [Product-Backlog](Product-Backlog.md) and the Issues / Project board | alice, bob |
+| 1. Product backlog | [Product-Backlog](Product-Backlog.md), [Issues](https://github.com/HozierDdd/CMPUT301-final/issues), [Project board](https://github.com/users/HozierDdd/projects/1) | alice, bob |
 | 2. UI mockups and storyboards | [UI-Mockups](UI-Mockups.md), [Storyboards](Storyboards.md), [US-to-Screen-Traceability](US-to-Screen-Traceability.md) | chen, dana |
 | 3. Object-oriented analysis | [CRC-Cards](CRC-Cards.md) | eli |
 | 4. Tool use | [Tool-Use](Tool-Use.md), Issues, Project board, commit history | farah |

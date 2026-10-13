@@ -172,10 +172,10 @@ def issues_script():
                 f"**Screens:** {', '.join(scr)}")
         ms = " --milestone 'Part 3 Halfway'" if h else ""
         out.append(f"gh issue create --repo \"$REPO\" --title \"US {us} {short}\" "
-                   f"--label \"{','.join(labels)}\"{ms} --body \"$(printf '{body}')\"")
+                   f"--label \"{','.join(labels)}\"{ms} --body \"$(printf '{body}')\"; sleep 1")
     out.append("")
     for t, a in b.TASKS:
-        out.append(f"gh issue create --repo \"$REPO\" --title \"{t}\" --label task --body 'Part 2 preparation task.'")
+        out.append(f"gh issue create --repo \"$REPO\" --title \"{t}\" --label task --body 'Part 2 preparation task.'; sleep 1")
     out.append("")
     out.append('echo "done: $(gh issue list --repo "$REPO" --limit 200 --state all | wc -l) issues"')
     w("scripts/create_issues.sh", "\n".join(out) + "\n")

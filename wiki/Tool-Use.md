@@ -7,8 +7,8 @@ what that means for us.
 
 | What | Where |
 |---|---|
-| Product backlog | one GitHub Issue per user story + [Product-Backlog](Product-Backlog.md) summary |
-| Task tracking | the **Project board** (To do / In progress / Done) with every issue on it |
+| Product backlog | one GitHub Issue per user story ([Issues](https://github.com/HozierDdd/CMPUT301-final/issues), 66 stories + 6 tasks) + [Product-Backlog](Product-Backlog.md) summary |
+| Task tracking | the [**Project board**](https://github.com/users/HozierDdd/projects/1) (Todo / In Progress / Done) with every issue on it; preparation tasks are already in Done |
 | Mockups, storyboards, CRC cards | the wiki pages, images embedded from `wiki/images/` |
 | Who is on the team | `doc/team.txt` and the README |
 | Licence | `LICENSE` (Apache-2.0) at the repo root |
