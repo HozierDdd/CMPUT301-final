@@ -7,7 +7,7 @@
 
 ## 0. 开场（1 分钟）
 
-打开 `README.md` 和 `wiki/Home.md`。说三句话：
+打开仓库的 **Wiki 标签页**（https://github.com/HozierDdd/CMPUT301-final/wiki），这就是学生要交的形式；`wiki/` 文件夹是源文件，改完用 `scripts/sync_wiki.sh` 同步。说三句话：
 - Part 2 不写代码，交四样东西：backlog、mockup + storyboard、CRC 卡、GitHub 使用记录。
 - 全部放在团队仓库的 wiki 里，图必须嵌进去，不能只给 Figma 链接。
 - 评分最看重**一致性**：同一条 US 在三处用同一个编号，同一个概念用同一个名字。

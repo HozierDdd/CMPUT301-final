@@ -10,9 +10,11 @@ Project description: <https://ualberta-cmput301.github.io/projects/project_probl
 
 ## Start here
 
-The **[wiki/Home.md](wiki/Home.md)** page is what a team's GitHub wiki home should look like.
-In a real team repo these pages live in the GitHub Wiki tab; here they are committed under
-`wiki/` so the whole demo is one repository.
+Open the **[Wiki tab](https://github.com/HozierDdd/CMPUT301-final/wiki)**: that is what a
+team's submission should look like (home page, sidebar, one page per deliverable, images
+embedded, wiki revision history per member). The same pages are kept as source under `wiki/`
+in this repository and mirrored into the Wiki with `scripts/sync_wiki.sh`, so they can be
+regenerated from the data file and still be shown in the form the course expects.
 
 | Deliverable | Where |
 |---|---|
@@ -33,12 +35,13 @@ scripts/gen_docs.py          -> wiki/Product-Backlog.md, US-to-Screen-Traceabili
 scripts/gen_mockups.py       -> wiki/images/M1..M18.png   (Pillow)
 scripts/diagrams/*.dot       -> wiki/images/S1..S3, crc-collaboration, bad example (Graphviz)
 scripts/gen_crc_card.py      -> wiki/images/crc-card-*.png
+scripts/sync_wiki.sh         -> pushes wiki/ into the GitHub Wiki (<repo>.wiki.git) with a _Sidebar
 ```
 
 Regenerate after editing the data file:
 
 ```bash
-python3 scripts/gen_docs.py && python3 scripts/gen_mockups.py && python3 scripts/gen_crc_card.py && bash scripts/render_diagrams.sh
+python3 scripts/gen_docs.py && python3 scripts/gen_mockups.py && python3 scripts/gen_crc_card.py && bash scripts/render_diagrams.sh && bash scripts/sync_wiki.sh
 ```
 
 Requirements: Python 3 with Pillow, Graphviz (`brew install graphviz`). Teams do **not** need
