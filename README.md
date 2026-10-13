@@ -24,7 +24,7 @@ of the wiki pages and images.
 | 3. CRC cards | wiki [CRC-Cards](https://github.com/HozierDdd/CMPUT301-final/wiki/CRC-Cards) |
 | 4. Tool use | wiki [Tool-Use](https://github.com/HozierDdd/CMPUT301-final/wiki/Tool-Use), `.gitignore`, `LICENSE`, `doc/team.txt`, commit and wiki history |
 | Self-check before submitting | [CHECKLIST.md](CHECKLIST.md) |
-| TA presenter notes (中文) | [PRESENTER-GUIDE.md](PRESENTER-GUIDE.md) |
+| TA presenter notes | [PRESENTER-GUIDE.md](PRESENTER-GUIDE.md) |
 
 ## How the wiki was first produced
 
