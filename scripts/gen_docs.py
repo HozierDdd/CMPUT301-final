@@ -122,7 +122,7 @@ def trace_page():
 def csv_export():
     path = os.path.join(ROOT, "backlog", "backlog.csv")
     with open(path, "w", newline="") as f:
-        cw = csv.writer(f)
+        cw = csv.writer(f, lineterminator="\n")
         cw.writerow(["issue", "us", "role", "story", "points", "risk", "halfway", "optional", "assignee", "screens"])
         for us, story, p, r, h, a, scr in b.STORIES:
             cw.writerow([b.issue_number(us), us, b.role_of(us), story.replace(" -->", ""), p, r,
