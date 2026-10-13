@@ -26,6 +26,30 @@ of the wiki pages and images.
 | Self-check before submitting | [CHECKLIST.md](CHECKLIST.md) |
 | TA presenter notes | [PRESENTER-GUIDE.md](PRESENTER-GUIDE.md) |
 
+## How user stories are numbered
+
+The [project description](https://ualberta-cmput301.github.io/projects/project_problem_descr.html)
+expresses every requirement as a partial user story, "As a (role), I want (goal)", and gives each
+one a number such as **US 01.02.01**. Every page, issue, diagram and CRC card in this demo refers
+to requirements by that number, so it is worth reading it once:
+
+| Part | Example | Meaning |
+|---|---|---|
+| `US` | | User Story |
+| first group | **01** | the actor: `01` = Entrant, `02` = Campsite Owner, `03` = Administrator |
+| second group | **02** | a feature group within that actor, e.g. entrant `01` = search and browse, `02` = waiting list, `03` = lottery notifications, `04` = reserving after a win |
+| third group | **01** | the story's position inside the group |
+
+So `US 01.02.01` is "As an entrant, I want to join the waiting list for a campsite lottery",
+and `US 01.02.02` is the next story in the same group, leaving the waiting list.
+
+Keep the numbers exactly as the project description has them. They are not perfectly sequential
+(for example `US 02.02.02` appears after `US 02.04.02`, and there is no `US 01.03.03`); do not
+renumber, or your backlog no longer matches the specification. A story ending in `-->` was added
+to the description later and is treated as optional in this demo (labelled `optional`, not in the
+halfway release). The description also says the stories "may change" and that new requirements
+will arrive for Part 4, so the backlog has to stay maintained.
+
 ## How the wiki was first produced
 
 The wiki is maintained by editing it directly (the Wiki tab, or a clone of
