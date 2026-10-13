@@ -1,7 +1,7 @@
 """Single source of truth for the demo backlog.
 
-Every other generated artefact (wiki/Product-Backlog.md, the traceability
-table, backlog/backlog.csv, scripts/create_issues.sh) is derived from this
+Every other generated artefact (the wiki's Product-Backlog and traceability
+pages, backlog/backlog.csv, scripts/create_issues.sh) is derived from this
 file so that numbers, points, risks and halfway flags can never disagree.
 
 Fields: (us, story, points, risk, halfway, assignee, screens)

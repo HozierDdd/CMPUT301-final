@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 """Generate the backlog table, the traceability table, the CSV export and the
-issue-creation script from scripts/backlog_data.py.  Run from the repo root:
+issue-creation script from scripts/backlog_data.py.
 
-    python3 scripts/gen_docs.py
+The two wiki pages are written into a local clone of the GitHub Wiki
+(https://github.com/HozierDdd/CMPUT301-final.wiki.git); the CSV and the issue
+script stay in this repository.  Run from the repo root:
+
+    python3 scripts/gen_docs.py [WIKI_DIR]       # default ../CMPUT301-final.wiki
+
+This was used once to produce the initial pages. The wiki is edited directly
+afterwards; re-running overwrites those two pages, so diff before committing.
 """
 import csv
 import os
@@ -12,12 +19,14 @@ sys.path.insert(0, os.path.dirname(__file__))
 import backlog_data as b  # noqa: E402
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
+WIKI = sys.argv[1] if len(sys.argv) > 1 else os.environ.get("WIKI_DIR", os.path.join(ROOT, "..", "CMPUT301-final.wiki"))
 
 
-def w(path, text):
-    with open(os.path.join(ROOT, path), "w") as f:
+def w(path, text, base=None):
+    full = os.path.join(base or ROOT, path)
+    with open(full, "w") as f:
         f.write(text)
-    print("wrote", path)
+    print("wrote", os.path.relpath(full))
 
 
 def flag(x):
@@ -32,8 +41,7 @@ def backlog_page():
     hpts = sum(s[2] for s in half)
     out = []
     out.append("# Product Backlog\n")
-    out.append("_Generated from `scripts/backlog_data.py` by `scripts/gen_docs.py`. "
-               "Edit the data file, not this page._\n")
+    out.append("_First generated from `scripts/backlog_data.py` in the main repository; edited here since._\n")
     out.append(f"**{total} user stories** from the "
                "[project description](https://ualberta-cmput301.github.io/projects/project_problem_descr.html). "
                f"**{len(half)} stories ({hpts} of {pts} points)** are planned for the "
@@ -90,10 +98,10 @@ def backlog_page():
 def trace_page():
     out = []
     out.append("# User Story to Screen Traceability\n")
-    out.append("_Generated from `scripts/backlog_data.py`. This table is how we show that "
+    out.append("_First generated from `scripts/backlog_data.py` in the main repository. This table is how we show that "
                "**every** requirement is covered by at least one mockup and one storyboard._\n")
-    out.append("Mockup ids (M1...M18) are defined on [UI Mockups](UI-Mockups.md); storyboard ids "
-               "(S1...S3) on [Storyboards](Storyboards.md).\n")
+    out.append("Mockup ids (M1...M18) are defined on [UI Mockups](UI-Mockups); storyboard ids "
+               "(S1...S3) on [Storyboards](Storyboards).\n")
     # which storyboard contains which screen
     sb_of = {}
     for sid, (_, screens) in b.STORYBOARDS.items():
@@ -182,7 +190,9 @@ def issues_script():
 
 
 if __name__ == "__main__":
-    w("wiki/Product-Backlog.md", backlog_page())
-    w("wiki/US-to-Screen-Traceability.md", trace_page())
+    if not os.path.isdir(WIKI):
+        sys.exit(f"wiki clone not found at {WIKI}; git clone https://github.com/HozierDdd/CMPUT301-final.wiki.git there or pass a path")
+    w("Product-Backlog.md", backlog_page(), WIKI)
+    w("US-to-Screen-Traceability.md", trace_page(), WIKI)
     csv_export()
     issues_script()

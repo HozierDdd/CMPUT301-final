@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
-"""Draw one CRC card the classic way (index-card look) plus a 'bad' card for contrast."""
+"""Draw one CRC card the classic way (index-card look) plus a 'bad' card for contrast.
+
+    python3 scripts/gen_crc_card.py [WIKI_DIR]   # writes <wiki clone>/images/crc-card-*.png
+"""
 import os
+import sys
 from PIL import Image, ImageDraw, ImageFont
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "wiki", "images")
+_ROOT = os.path.join(os.path.dirname(__file__), "..")
+WIKI = sys.argv[1] if len(sys.argv) > 1 else os.environ.get("WIKI_DIR", os.path.join(_ROOT, "..", "CMPUT301-final.wiki"))
+OUT = os.path.join(WIKI, "images")
 FONT = "/System/Library/Fonts/Helvetica.ttc"
 f = lambda s, b=False: ImageFont.truetype(FONT, s, index=1 if b else 0)
 
